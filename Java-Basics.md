@@ -1,15 +1,18 @@
 # Java Basics
 
-## Few Core Concepts
+## Core Concepts
 
 ### Variables
 
-In Java, variables are typically _strongly typed_ which means you have to define the types for each variables, otherwise the compiler will throw error on compile time. Therefore, each variable has an associate data type of either :
+In [Java](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Java), variables are [_strongly typed_](https://en.wikipedia.org/wiki/Strong_and_weak_typing#Definitions_of_.22strong.22_or_.22weak.22), which means you have to define the types for each variables whenever you declare it. Otherwise, the compiler will throw error at [compile time](https://en.wikipedia.org/wiki/Compile_time). Therefore, each variable has an associate data type of either :
 
-* Primitive Data Type : int, short, char, long, boolean, byte, long, float, double
-* Object Data Type : Boolean, Byte, Short, Character, Integer, Long, Float, Double, String
+* Primitive Type : `int`, `short`, `char`, `long`, `boolean`, `byte`, `float`, `double`
+* Wrapper Type : `Integer`, `Short`, `Char`, `Long`, `Boolean`, `Byte`, `Float`, `Double`
+* Object Type: `String`, `StringBuilder`, `Calendar`, `ArrayList` etc.
 
-Where typically you can declare variables using the following syntax :
+We made a distinction between **Wrapper Type** and general **Object Type** for a reason - wrapper types are closely linked with their primitive counterparts via [autoboxing and unboxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html).
+
+Typically you can declare variables using the following syntax :
 
 ```java
 //Primitive Data Type
@@ -82,7 +85,7 @@ There are other kinds of access Modifiers like public, protected, default etc. [
 
 ### Constructors
 
-Whats the point then? I should be able to store data in it right?
+What's the point then? I should be able to store data in it right?
 
 Thats when we use either Getter / Setter methods or in this case Constructors to initialize a class. Basically every Java Class has a constructor, which is the method which is called first when any object of the class is initialized. Think of it as a bit of starter code.
 
@@ -208,7 +211,7 @@ class ElectricCar implements Car {
 }
 ```
 
-So interface basically bounds you to a contract to follow, where you must _implement_ all the methods. If you dont, the compiler will complain! Know more about the [awesome power of Inheritance here](#TODO).
+So interface basically bounds you to a contract to follow, where you must _implement_ all the methods. If you don't, the compiler will complain! Know more about the [awesome power of Inheritance here](#TODO).
 
 ## Basic Operations
 
