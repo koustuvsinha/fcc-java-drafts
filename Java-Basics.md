@@ -41,7 +41,7 @@ But there are more to these variables, [read about them here](#TODO).
 
 Classes are groups of variables and operations on them. A class can have variables, methods (or functions) and constructors (or methods which are used to initiate, more on that later!).
 
-Think of a `Class` as a blueprint for creating something concrete. A `Class` tells you the 'what' and 'how' an `object` of that Class will look like once `instantiated`. In essence, it defines `properties` (say color, engine capacity) and `behavior` (stop, speed up, change gears, honk etc.) for a Car. 
+Think of a `Class` as a blueprint for creating something concrete. A `Class` tells you the 'what' and 'how' an `object` of that Class will look like once `instantiated`. In essence, it defines `properties` (say color, engine capacity) and `behavior` (stop, speed up, change gears, honk etc.) for a Car in this case. 
 
 Objects are _instances_ of a class. All objects are instances of a certain class. Imagine a class being a "template", which every Object copies to. When you create an Object, basically it creates a new object on the blueprint of a class. Now lets look at this from a little piece of code :
 
@@ -93,7 +93,7 @@ Main.java:13: error: name has private access in Car
 
 Why? Notice we had mentioned `private` before the variable `name` in class `Car`. So since its private, we cant touch it from outside!
 
-There are other kinds of access Modifiers like public, protected, default etc. [Read more about them here](#TODO).
+There are other kinds of access Modifiers such as public, protected, default etc. [Read more about them here](#TODO).
 
 ### Constructors
 
@@ -130,7 +130,7 @@ Like what Constructors can do? [Dive into it more here](#TODO).
 
 ### Methods
 
-`getName()` and `getManufacturerName()` are two "Getter" methods we have used here. Notice unlike JavaScript, we **have** to define the return type of any method we write, otherwise it will fail compile time. If you do not want a method to return anything, use `void` return type.
+`getName()` and `getManufacturerName()` are two "Getter" methods we have used here. Notice unlike JavaScript, we **have** to define the return type of any method we write, otherwise it will fail at compile time. If you do not want a method to return anything, use `void` return type.
 
 ```java
 public class Car {
@@ -227,4 +227,90 @@ So interface basically bounds you to a contract to follow, where you must _imple
 
 ## Basic Operations
 
+Java supports the following operations on variables:
+
+* Arithmetic : `Addition(+)`, `Subtraction(-)`, `Multiplication(*)`, `Division(/)`, `Modulus(%)`,`Increment(++)`, `Decrement(--)` 
+* Relational: `Equal to(==)`, `Not Equal to (!=)`, `Greater than(>)`, `Less than(<)`, `Greater than or equal to(>=)`, `Less than or equal to(<=)`, 
+* Bitwise: `Bitwise And(&)`, `Bitwise Or(|)`, `Bitwise XOR(^)`, `Bitwise Compliment(~)`, `Left shift(<<)`, `Right Shift (>>)`, `Zero fill right shift (>>>)`
+* Logical: `Logical And (&&)`, `Logical Or(||)`, `Logical Not (!)`
+* Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
+* Others: `Conditional/Ternary(?:)`, `instanceof`
+
+While most of the operations are self explanatory, the Conditional (Ternary) Operator works as follows: 
+`expression that results in boolean output ? return this value if true : return this value if false`
+
+For e.g: 
+```java
+int x = 10;
+int y = (x == 10) ? 5 : 9; <-- y will equal 5 since the expression x == 10 evaluates to true
+```
+
+
+###### The `instanceof` operator
+This is a special operator that allows the developer to check whether or not a particular object is in the hierarchy of particular Class/Interface.
+
+For e.g.:
+
+```java
+ 
+ //assuming vehicle is an instance of Class `Car` the expression inside the 'if' will  return true
+ if( vehicle instanceof Car ) {
+   //do something if vehicle is a Car
+ }
+```
+
 ## Control Flow
+
+Control flow statements help a developer to take `decisions` based on values. Primarily, Java has the following constructs for control flow:
+
+* `if`
+
+```java
+        if( <expression that results in a boolean>) {
+         //code enters this block if the above expression is 'true'
+        }
+```
+
+* `if...else`
+
+```java
+        if( <expression that results in a boolean> ){
+          //execute this block if the expression is 'true'
+        
+        } else{
+          //execute this block if the expression is 'false'
+        }
+```
+
+* `switch`
+
+    Switch is an alternative for the `if...else` construct when there are multiple values and cases to check against. 
+
+```java
+        switch( <integer / String / Enum > ){
+            case <int/String/Enum> : <statements>
+            break;
+            case <int/String/Enum> : <statements>
+            default: <statements>
+        }
+```
+    
+Note: The program flow `falls through` the next `case` if the `break` statement is missing. For e.g. Let's say you say the standard 'Hello' to everyone at office, but you are extra nice to the girl who sits next to you and sound grumpy to your boss. The way to represent would be something like:
+    
+```java
+       switch(person){
+           case 'boss' : soundGrumpy();
+           break;
+           case 'neighbour' : soundExtraNice();
+           case 'colleague': soundNormal();
+           break;
+           default :
+           soundNormal();
+       }
+```
+
+Note: The `default` case runs when none of the `case` matches. Remember that when a case has no `break` statement, it `falls through` to the next case and will continue to the subsequent `cases` till a `break` is encountered.
+    
+* `nested statements`
+
+Any of the previous control flows can be nested. Which means you can have nested `if`,`if..else` and `switch..case` statements. i.e., you can have any combination of these statements within the other and there is no limitation to the depth of `nesting`.
