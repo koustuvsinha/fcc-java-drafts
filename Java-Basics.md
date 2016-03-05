@@ -2,9 +2,19 @@
 
 ## Core Concepts
 
+### The Java Virtual Machine (JVM) 
+
+Java belongs to a family of languages called **Compiled Languages** (https://en.wikipedia.org/wiki/Compiled_language). Any code written in such a language needs to be converted (compiled) to an intermediate form that can then be understood by the host platform (the OS/platform in which the code runs). For Java, this intermediate form is called **Bytecode** which is then interpreted by a runtime called a Java Virtual Machine (JVM). Think of JVM (https://docs.oracle.com/javase/specs/jvms/se7/html/) as a piece of software that does the hard work of running your Java code. It takes care of memory allocation, thread management, garbage collection and so much more. Apart from Java, it also supports (read: able to run) code written in languages such as Groovy, Scala etc.
+
+In Java, code is written and saved as `.java` files. The files are then run through a compiler (javac) to convert them to Bytecode `.class` files. Standalone Java programs are then run using the `java` command. More about this later. 
+
+The following sections describe some of the basic building blocks of coding in Java.
+
 ### Variables
 
-In [Java](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Java), variables are [_strongly typed_](https://en.wikipedia.org/wiki/Strong_and_weak_typing#Definitions_of_.22strong.22_or_.22weak.22), which means you have to define the types for each variables whenever you declare it. Otherwise, the compiler will throw error at [compile time](https://en.wikipedia.org/wiki/Compile_time). Therefore, each variable has an associate data type of either :
+Variables store values. 
+
+In [Java](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Java), variables are [_strongly typed_](https://en.wikipedia.org/wiki/Strong_and_weak_typing#Definitions_of_.22strong.22_or_.22weak.22), which means you have to define the type for each variable whenever you declare it. Otherwise, the compiler will throw error at [compile time](https://en.wikipedia.org/wiki/Compile_time). Therefore, each variable has an associate data type of either :
 
 * Primitive Type : `int`, `short`, `char`, `long`, `boolean`, `byte`, `float`, `double`
 * Wrapper Type : `Integer`, `Short`, `Char`, `Long`, `Boolean`, `Byte`, `Float`, `Double`
@@ -30,6 +40,8 @@ But there are more to these variables, [read about them here](#TODO).
 ### Classes & Objects
 
 Classes are groups of variables and operations on them. A class can have variables, methods (or functions) and constructors (or methods which are used to initiate, more on that later!).
+
+Think of a `Class` as a blueprint for creating something concrete. A `Class` tells you the 'what' and 'how' an `object` of that Class will look like once `instantiated`. In essence, it defines `properties` (say color, engine capacity) and `behavior` (stop, speed up, change gears, honk etc.) for a Car. 
 
 Objects are _instances_ of a class. All objects are instances of a certain class. Imagine a class being a "template", which every Object copies to. When you create an Object, basically it creates a new object on the blueprint of a class. Now lets look at this from a little piece of code :
 
