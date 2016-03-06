@@ -230,10 +230,12 @@ So interface basically bounds you to a contract to follow, where you must _imple
 Java supports the following operations on variables:
 
 * Arithmetic : `Addition(+)`, `Subtraction(-)`, `Multiplication(*)`, `Division(/)`, `Modulus(%)`,`Increment(++)`, `Decrement(--)` 
+Note:  `+` can be used for String concatenation. And `-` on a String is not a valid operation.
 * Relational: `Equal to(==)`, `Not Equal to (!=)`, `Greater than(>)`, `Less than(<)`, `Greater than or equal to(>=)`, `Less than or equal to(<=)`, 
 * Bitwise: `Bitwise And(&)`, `Bitwise Or(|)`, `Bitwise XOR(^)`, `Bitwise Compliment(~)`, `Left shift(<<)`, `Right Shift (>>)`, `Zero fill right shift (>>>)`
 * Logical: `Logical And (&&)`, `Logical Or(||)`, `Logical Not (!)`
 * Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
+
 * Others: `Conditional/Ternary(?:)`, `instanceof`
 
 While most of the operations are self explanatory, the Conditional (Ternary) Operator works as follows: 
@@ -410,8 +412,10 @@ System.out.println( course instanceof Object); //<- This prints 'true'
 
 You can create a String in the following ways:
 
-1. `String str="I am a String";`
-2. `String str = new String("I am a String")`
+1. `String str="I am a String";` //This is a String literal
+2. `String str = new String("I am a String")`; //This is a String Object
 
-You should be asking immediately: What's the difference between the two?
+You might be thinking: What's the difference between the two?
+
+
 
