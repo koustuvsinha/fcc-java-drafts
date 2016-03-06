@@ -272,7 +272,7 @@ Control flow statements help a developer to take `decisions` based on values. Pr
 ```
 
 * `if...else`
-
+   
 ```java
         if( <expression that results in a boolean> ){
           //execute this block if the expression is 'true'
@@ -284,7 +284,7 @@ Control flow statements help a developer to take `decisions` based on values. Pr
 
 * `switch`
 
-    Switch is an alternative for the `if...else` construct when there are multiple values and cases to check against. 
+Switch is an alternative for the `if...else` construct when there are multiple values and cases to check against. 
 
 ```java
         switch( <integer / String / Enum > ){
@@ -294,11 +294,11 @@ Control flow statements help a developer to take `decisions` based on values. Pr
             default: <statements>
         }
 ```
-    
-Note: The program flow `falls through` the next `case` if the `break` statement is missing. For e.g. Let's say you say the standard 'Hello' to everyone at office, but you are extra nice to the girl who sits next to you and sound grumpy to your boss. The way to represent would be something like:
+ 
+ Note: The program flow `falls through` the next `case` if the `break` statement is missing. For e.g. Let's say you say the standard 'Hello' to everyone at office, but you are extra nice to the girl who sits next to you and sound grumpy to your boss. The way to represent would be something like:
     
 ```java
-       switch(person){
+    switch(person){
            case 'boss' : soundGrumpy();
            break;
            case 'neighbour' : soundExtraNice();
@@ -308,9 +308,89 @@ Note: The program flow `falls through` the next `case` if the `break` statement 
            soundNormal();
        }
 ```
-
-Note: The `default` case runs when none of the `case` matches. Remember that when a case has no `break` statement, it `falls through` to the next case and will continue to the subsequent `cases` till a `break` is encountered.
+    Note: The `default` case runs when none of the `case` matches. Remember that when a case has no `break` statement, it `falls through` to the next case and will continue to the subsequent `cases` till a `break` is encountered.
     
 * `nested statements`
 
 Any of the previous control flows can be nested. Which means you can have nested `if`,`if..else` and `switch..case` statements. i.e., you can have any combination of these statements within the other and there is no limitation to the depth of `nesting`.
+    
+    
+## Loop constructs
+
+
+Remember the guy (or gal) who goes on and on about something? Well, that's a `loop` right there for you. In `Java`, a developer can represent a `do something repeatedly` using the following constructs:
+
+###### `while` Loop
+
+
+The `while` loop executes a group of statements / single statement till a condition evaluates to `true`. Like so:
+
+```java
+ while( some condition is true ){
+  //do something
+  //update the condition
+ }
+```
+`Note`: For the `while` loop to start executing, you'd require the condition to be true. To exit the loop, you'd require to modify the condition so that it becomes false at some point of time. Otherwise, the loop will continue to execute forever.
+
+Can you now guess the output of the following snippet?
+
+```java
+ int i = 0;
+ while( i < 10 ){
+  System.out.println("Value of i is : " + i);
+  i++;
+ }
+```
+
+###### `for` Loop
+
+
+There are 2 of these:
+
+1. Normal `for` loop
+
+```java
+ for( initialize variable; condition; modify variable ){
+  //perform action
+ }
+```
+
+For e.g.
+
+```java
+ for(int i=0; i<10; i++){
+  System.out.println("The value of is : " + i);
+ }
+```
+
+2. Enhanced `for` loop
+
+Well, this came into existence in Java 5. It helps when you are required to iterate over a list of items and perform some action like so:
+
+```java
+ //assuming nameList is a List of names that are actually Strings
+ for( String name : nameList ){
+  SYstem.out.println( name );
+ }
+```
+
+
+###### `do..while` Loop
+
+
+The `do..while` loop is a special case of the `while` loop wherein the group of statements is guranteed to run atleast once before checking for a given condition. Confused? Ok, the follwing example should clear things up.
+
+Can you guess the output of the following code snippet? 
+
+```java
+
+int i=10;
+do{
+	System.out.println("The value of i is " + i);
+	i--;
+}while( i >= 10 );
+
+```
+
+`Remember` : The condition of a `do-while` loop is checked AFTER the code body is executed once.
