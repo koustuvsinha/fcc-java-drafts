@@ -394,3 +394,24 @@ do{
 ```
 
 `Remember` : The condition of a `do-while` loop is checked AFTER the code body is executed once.
+
+Now that you have some idea of basic syntax, let's delve into some of the most relevant and commonly used data types which will help you to develop programs in Java.
+
+## Strings
+
+Strings, as you might be already aware, are a sequence of characters. In Java, a `String` is an `Object`. 
+
+```java
+
+String course = "FCC";
+System.out.println( course instanceof Object); //<- This prints 'true'
+
+```
+
+You can create a String in the following ways:
+
+1. `String str="I am a String";`
+2. `String str = new String("I am a String")`
+
+You should be asking immediately: What's the difference between the two?
+
