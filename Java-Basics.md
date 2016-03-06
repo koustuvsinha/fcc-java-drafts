@@ -229,13 +229,12 @@ So interface basically bounds you to a contract to follow, where you must _imple
 
 Java supports the following operations on variables:
 
-* Arithmetic : `Addition(+)`, `Subtraction(-)`, `Multiplication(*)`, `Division(/)`, `Modulus(%)`,`Increment(++)`, `Decrement(--)` 
-Note:  `+` can be used for String concatenation. And `-` on a String is not a valid operation.
+* Arithmetic : `Addition(+)`, `Subtraction(-)`, `Multiplication(*)`, `Division(/)`, `Modulus(%)`,`Increment(++)`, `Decrement(--)`.
+* String concatenation:  `+` can be used for String concatenation but subtraction `-` on a String is not a valid operation.
 * Relational: `Equal to(==)`, `Not Equal to (!=)`, `Greater than(>)`, `Less than(<)`, `Greater than or equal to(>=)`, `Less than or equal to(<=)`, 
 * Bitwise: `Bitwise And(&)`, `Bitwise Or(|)`, `Bitwise XOR(^)`, `Bitwise Compliment(~)`, `Left shift(<<)`, `Right Shift (>>)`, `Zero fill right shift (>>>)`
 * Logical: `Logical And (&&)`, `Logical Or(||)`, `Logical Not (!)`
 * Assignment: `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `^=`, `|=`
-
 * Others: `Conditional/Ternary(?:)`, `instanceof`
 
 While most of the operations are self explanatory, the Conditional (Ternary) Operator works as follows: 
@@ -320,7 +319,7 @@ Any of the previous control flows can be nested. Which means you can have nested
 ## Loop constructs
 
 
-Remember the guy (or gal) who goes on and on about something? Well, that's a `loop` right there for you. In `Java`, a developer can represent a `do something repeatedly` using the following constructs:
+Remember the guy (or gal) who goes on and on about something? Well, that's a `loop` right there for you. In `Java`, a developer can represent the action of  `doing something repeatedly` using the following constructs:
 
 ###### `while` Loop
 
@@ -412,10 +411,28 @@ System.out.println( course instanceof Object); //<- This prints 'true'
 
 You can create a String in the following ways:
 
-1. `String str="I am a String";` //This is a String literal
+1. `String str = "I am a String";` //This is a String literal
 2. `String str = new String("I am a String")`; //This is a String Object
 
 You might be thinking: What's the difference between the two?
 
+Well, using the `new` keyword gurantees that a new `String` object will be created and a new memory location will be allocated in the `Heap` memory. You see, Java takes care of memory allocation and collecting unused memory in the background - among other things. However, in this case, it's good to be aware about the difference so that you can write code that can help the JVM make appropriate optimizations. 
 
+The following snippet will make things more clearer. The objective is to understand: How many String objects are created?
 
+```java
+ 
+ String str = "This is a string";
+ String str2 = "This is a string";
+ String str3 = new String("This is a string");
+ 
+ System.out.println( str == str2 ); //This prints true
+ System.out.println( str == str3 ); //This prints false
+
+```
+
+The answer is: 2 String objects are created. 
+
+You see, the JVM (and its creators) are pretty smart. They figured that Strings differ mostly in terms of its `content`. When you create a String literal, the JVM internally checks, what is known as `the String pool`, to see if it can find a similar (content wise) String object. If it finds it, it returns the same reference. Otherwise, it just goes ahead and creates a new String object in the pool so that the same check can be performed in the future. 
+
+However, whenever you use the `new` keyword, it no longer performs this check. So, there could be a 1000s of String objects with the same content and yet, it'll go ahead and create a new String - using up additional memory. This is precisely why it's a good practice to use `String literals` instead of using the `new` keyword as much as possible.
